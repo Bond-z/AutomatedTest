@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.8.10 on darwin)" generated="20220814 13:02:14.597" rpa="false" schemaversion="2">
+<suite id="s1" name="Exercise" source="/Users/nathakrit/Documents/BluePi_AutomatedTest/testcases/exercise.robot">
+<test id="s1-t1" name="Verify Todo List website can be able to add to-do tasks successfully">
+<kw name="​​Open responsive web browser with chrome" library="todo_list_keywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220814 13:02:14.828" level="INFO">Opening browser 'gc' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20220814 13:02:14.828" endtime="20220814 13:02:17.949"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${WIDTH_MOB_WEB}</arg>
+<arg>${HEIGHT_MOB_WEB}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220814 13:02:17.949" endtime="20220814 13:02:18.056"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:14.828" endtime="20220814 13:02:18.056"/>
+</kw>
+<kw name="Add new to do list item" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<for flavor="IN">
+<var>${task}</var>
+<value>@{tasks}</value>
+<iter>
+<var name="${task}">Task1</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.059" level="INFO">Typing text 'Task1' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.057" endtime="20220814 13:02:18.241"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.242" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.241" endtime="20220814 13:02:18.269"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.057" endtime="20220814 13:02:18.269"/>
+</iter>
+<iter>
+<var name="${task}">Task2</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.270" level="INFO">Typing text 'Task2' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.270" endtime="20220814 13:02:18.338"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.339" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.338" endtime="20220814 13:02:18.374"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.269" endtime="20220814 13:02:18.374"/>
+</iter>
+<iter>
+<var name="${task}">Task3</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.375" level="INFO">Typing text 'Task3' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.374" endtime="20220814 13:02:18.425"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.426" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.425" endtime="20220814 13:02:18.464"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.374" endtime="20220814 13:02:18.464"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:18.057" endtime="20220814 13:02:18.464"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:18.057" endtime="20220814 13:02:18.464"/>
+</kw>
+<kw name="Verify the item is already added into to do taks successfully" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.465" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.464" endtime="20220814 13:02:18.501"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${tasks}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220814 13:02:18.501" level="INFO">Length is 3</msg>
+<msg timestamp="20220814 13:02:18.501" level="INFO">${len} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:18.501" endtime="20220814 13:02:18.501"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${task}</var>
+<value>${len}</value>
+<iter>
+<var name="${task}">0</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.tasks}</arg>
+<arg>$task_no=${task+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:18.503" level="INFO">${key_value_pairs} = {'$task_no': 1}</msg>
+<status status="PASS" starttime="20220814 13:02:18.503" endtime="20220814 13:02:18.503"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:18.507" level="INFO">${result_text} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.503" endtime="20220814 13:02:18.507"/>
+</kw>
+<msg timestamp="20220814 13:02:18.507" level="INFO">${ele} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.501" endtime="20220814 13:02:18.507"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${task}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:18.523" level="INFO">Element 'xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]' contains text 'Task1'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.507" endtime="20220814 13:02:18.523"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.501" endtime="20220814 13:02:18.523"/>
+</iter>
+<iter>
+<var name="${task}">1</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.tasks}</arg>
+<arg>$task_no=${task+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:18.525" level="INFO">${key_value_pairs} = {'$task_no': 2}</msg>
+<status status="PASS" starttime="20220814 13:02:18.524" endtime="20220814 13:02:18.525"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:18.525" level="INFO">${result_text} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-2"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.525" endtime="20220814 13:02:18.525"/>
+</kw>
+<msg timestamp="20220814 13:02:18.526" level="INFO">${ele} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-2"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.523" endtime="20220814 13:02:18.526"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${task}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:18.542" level="INFO">Element 'xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-2"]' contains text 'Task2'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.526" endtime="20220814 13:02:18.542"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.523" endtime="20220814 13:02:18.542"/>
+</iter>
+<iter>
+<var name="${task}">2</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.tasks}</arg>
+<arg>$task_no=${task+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:18.544" level="INFO">${key_value_pairs} = {'$task_no': 3}</msg>
+<status status="PASS" starttime="20220814 13:02:18.544" endtime="20220814 13:02:18.544"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:18.545" level="INFO">${result_text} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-3"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.544" endtime="20220814 13:02:18.545"/>
+</kw>
+<msg timestamp="20220814 13:02:18.545" level="INFO">${ele} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-3"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.543" endtime="20220814 13:02:18.545"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${task}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:18.561" level="INFO">Element 'xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-3"]' contains text 'Task3'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.545" endtime="20220814 13:02:18.562"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.542" endtime="20220814 13:02:18.562"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:18.501" endtime="20220814 13:02:18.562"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:18.464" endtime="20220814 13:02:18.562"/>
+</kw>
+<kw name="Verify first task should be displayed on the top" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:18.563" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.562" endtime="20220814 13:02:18.580"/>
+</kw>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.tasks}</arg>
+<arg>$task_no=1</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:18.581" level="INFO">${key_value_pairs} = {'$task_no': '1'}</msg>
+<status status="PASS" starttime="20220814 13:02:18.581" endtime="20220814 13:02:18.581"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:18.582" level="INFO">${result_text} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.581" endtime="20220814 13:02:18.582"/>
+</kw>
+<msg timestamp="20220814 13:02:18.582" level="INFO">${ele} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:18.580" endtime="20220814 13:02:18.582"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[0]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:18.592" level="INFO">Element 'xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]' contains text 'Task1'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.582" endtime="20220814 13:02:18.592"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.562" endtime="20220814 13:02:18.592"/>
+</kw>
+<kw name="Close Window" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="PASS" starttime="20220814 13:02:18.592" endtime="20220814 13:02:18.671"/>
+</kw>
+<tag>tc1</tag>
+<status status="PASS" starttime="20220814 13:02:14.827" endtime="20220814 13:02:18.671"/>
+</test>
+<test id="s1-t2" name="Verify incomplete task can be deleted successfully">
+<kw name="​​Open responsive web browser with chrome" library="todo_list_keywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220814 13:02:18.673" level="INFO">Opening browser 'gc' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20220814 13:02:18.673" endtime="20220814 13:02:21.374"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${WIDTH_MOB_WEB}</arg>
+<arg>${HEIGHT_MOB_WEB}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220814 13:02:21.374" endtime="20220814 13:02:21.481"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:18.672" endtime="20220814 13:02:21.481"/>
+</kw>
+<kw name="Add new to do list item" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<for flavor="IN">
+<var>${task}</var>
+<value>@{tasks}</value>
+<iter>
+<var name="${task}">Task1</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.483" level="INFO">Typing text 'Task1' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.482" endtime="20220814 13:02:21.585"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.585" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.585" endtime="20220814 13:02:21.615"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.482" endtime="20220814 13:02:21.615"/>
+</iter>
+<iter>
+<var name="${task}">Task2</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.616" level="INFO">Typing text 'Task2' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.615" endtime="20220814 13:02:21.683"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.684" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.683" endtime="20220814 13:02:21.703"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.615" endtime="20220814 13:02:21.703"/>
+</iter>
+<iter>
+<var name="${task}">Task3</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.704" level="INFO">Typing text 'Task3' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.703" endtime="20220814 13:02:21.771"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.771" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.771" endtime="20220814 13:02:21.787"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.703" endtime="20220814 13:02:21.787"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:21.482" endtime="20220814 13:02:21.787"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:21.481" endtime="20220814 13:02:21.788"/>
+</kw>
+<kw name="Delete all tasks" library="todo_list_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.789" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.788" endtime="20220814 13:02:21.840"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.txt_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.848" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:21.840" endtime="20220814 13:02:21.848"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${task}</var>
+<value>${count}</value>
+<iter>
+<var name="${task}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_task}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.849" level="INFO">Clicking element 'xpath=(//*[@id="incomplete-tasks"]/child::*)[1]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.848" endtime="20220814 13:02:21.876"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.848" endtime="20220814 13:02:21.876"/>
+</iter>
+<iter>
+<var name="${task}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_task}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.877" level="INFO">Clicking element 'xpath=(//*[@id="incomplete-tasks"]/child::*)[1]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.876" endtime="20220814 13:02:21.900"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.876" endtime="20220814 13:02:21.900"/>
+</iter>
+<iter>
+<var name="${task}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_task}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.901" level="INFO">Clicking element 'xpath=(//*[@id="incomplete-tasks"]/child::*)[1]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.901" endtime="20220814 13:02:21.924"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.901" endtime="20220814 13:02:21.924"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:21.848" endtime="20220814 13:02:21.924"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:21.788" endtime="20220814 13:02:21.924"/>
+</kw>
+<kw name="Verify to do task is empty when all tasks has been deleted" library="todo_list_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:21.925" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:21.925" endtime="20220814 13:02:21.943"/>
+</kw>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.tasks}</arg>
+<arg>$task_no=1</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:21.944" level="INFO">${key_value_pairs} = {'$task_no': '1'}</msg>
+<status status="PASS" starttime="20220814 13:02:21.944" endtime="20220814 13:02:21.944"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:21.944" level="INFO">${result_text} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:21.944" endtime="20220814 13:02:21.944"/>
+</kw>
+<msg timestamp="20220814 13:02:21.945" level="INFO">${ele} = xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]</msg>
+<status status="PASS" starttime="20220814 13:02:21.943" endtime="20220814 13:02:21.945"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20220814 13:02:21.952" level="INFO">Element 'xpath=//*[@id="incomplete-tasks"]/child::*//*[@id="text-1"]' did not exist.</msg>
+<status status="PASS" starttime="20220814 13:02:21.945" endtime="20220814 13:02:21.952"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:21.924" endtime="20220814 13:02:21.952"/>
+</kw>
+<kw name="Close Window" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="PASS" starttime="20220814 13:02:21.952" endtime="20220814 13:02:22.027"/>
+</kw>
+<tag>tc2</tag>
+<status status="PASS" starttime="20220814 13:02:18.672" endtime="20220814 13:02:22.027"/>
+</test>
+<test id="s1-t3" name="Verify tasks can be added into COMPLETED when tick in check box">
+<kw name="​​Open responsive web browser with chrome" library="todo_list_keywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220814 13:02:22.029" level="INFO">Opening browser 'gc' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20220814 13:02:22.029" endtime="20220814 13:02:24.844"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${WIDTH_MOB_WEB}</arg>
+<arg>${HEIGHT_MOB_WEB}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220814 13:02:24.845" endtime="20220814 13:02:24.953"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:22.029" endtime="20220814 13:02:24.953"/>
+</kw>
+<kw name="Add new to do list item" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<for flavor="IN">
+<var>${task}</var>
+<value>@{tasks}</value>
+<iter>
+<var name="${task}">Task1</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:24.956" level="INFO">Typing text 'Task1' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:24.954" endtime="20220814 13:02:25.060"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.061" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.061" endtime="20220814 13:02:25.093"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:24.954" endtime="20220814 13:02:25.093"/>
+</iter>
+<iter>
+<var name="${task}">Task2</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.094" level="INFO">Typing text 'Task2' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.094" endtime="20220814 13:02:25.171"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.171" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.171" endtime="20220814 13:02:25.191"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.093" endtime="20220814 13:02:25.191"/>
+</iter>
+<iter>
+<var name="${task}">Task3</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.192" level="INFO">Typing text 'Task3' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.191" endtime="20220814 13:02:25.268"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.269" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.268" endtime="20220814 13:02:25.307"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.191" endtime="20220814 13:02:25.307"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:24.954" endtime="20220814 13:02:25.307"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:24.954" endtime="20220814 13:02:25.307"/>
+</kw>
+<kw name="Finish the task in TO DO TASKS" library="todo_list_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.308" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.308" endtime="20220814 13:02:25.344"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220814 13:02:25.344" endtime="20220814 13:02:25.362"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.txt_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.370" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:25.362" endtime="20220814 13:02:25.370"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${task}</var>
+<value>${count}</value>
+<iter>
+<var name="${task}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.371" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.371" endtime="20220814 13:02:25.399"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.371" endtime="20220814 13:02:25.399"/>
+</iter>
+<iter>
+<var name="${task}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.400" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.399" endtime="20220814 13:02:25.425"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.399" endtime="20220814 13:02:25.425"/>
+</iter>
+<iter>
+<var name="${task}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.426" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.425" endtime="20220814 13:02:25.450"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.425" endtime="20220814 13:02:25.450"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:25.370" endtime="20220814 13:02:25.450"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:25.307" endtime="20220814 13:02:25.450"/>
+</kw>
+<kw name="Verify items in COMPLETED tasks" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_completed}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.452" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="Completed"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.451" endtime="20220814 13:02:25.482"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.completed_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:25.507" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:25.482" endtime="20220814 13:02:25.507"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>${count}</value>
+<iter>
+<var name="${index}">0</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:25.509" level="INFO">${key_value_pairs} = {'$task_no': 1}</msg>
+<status status="PASS" starttime="20220814 13:02:25.508" endtime="20220814 13:02:25.509"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:25.509" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.509" endtime="20220814 13:02:25.509"/>
+</kw>
+<msg timestamp="20220814 13:02:25.510" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.507" endtime="20220814 13:02:25.510"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:25.526" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]' contains text 'Task1'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.510" endtime="20220814 13:02:25.526"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.507" endtime="20220814 13:02:25.526"/>
+</iter>
+<iter>
+<var name="${index}">1</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:25.528" level="INFO">${key_value_pairs} = {'$task_no': 2}</msg>
+<status status="PASS" starttime="20220814 13:02:25.528" endtime="20220814 13:02:25.528"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:25.529" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.528" endtime="20220814 13:02:25.529"/>
+</kw>
+<msg timestamp="20220814 13:02:25.529" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.526" endtime="20220814 13:02:25.529"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:25.546" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]' contains text 'Task2'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.529" endtime="20220814 13:02:25.546"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.526" endtime="20220814 13:02:25.547"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:25.548" level="INFO">${key_value_pairs} = {'$task_no': 3}</msg>
+<status status="PASS" starttime="20220814 13:02:25.548" endtime="20220814 13:02:25.548"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:25.549" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.549" endtime="20220814 13:02:25.549"/>
+</kw>
+<msg timestamp="20220814 13:02:25.549" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:25.547" endtime="20220814 13:02:25.549"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:25.566" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]' contains text 'Task3'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.549" endtime="20220814 13:02:25.566"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.547" endtime="20220814 13:02:25.566"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:25.507" endtime="20220814 13:02:25.566"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:25.451" endtime="20220814 13:02:25.566"/>
+</kw>
+<kw name="Close Window" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="PASS" starttime="20220814 13:02:25.566" endtime="20220814 13:02:25.647"/>
+</kw>
+<tag>tc3</tag>
+<status status="PASS" starttime="20220814 13:02:22.028" endtime="20220814 13:02:25.647"/>
+</test>
+<test id="s1-t4" name="Verify COMPLETED tasks should be empty when all items has been deleted">
+<kw name="​​Open responsive web browser with chrome" library="todo_list_keywords" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220814 13:02:25.649" level="INFO">Opening browser 'gc' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20220814 13:02:25.649" endtime="20220814 13:02:28.297"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${WIDTH_MOB_WEB}</arg>
+<arg>${HEIGHT_MOB_WEB}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220814 13:02:28.297" endtime="20220814 13:02:28.403"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:25.648" endtime="20220814 13:02:28.403"/>
+</kw>
+<kw name="Add new to do list item" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<for flavor="IN">
+<var>${task}</var>
+<value>@{tasks}</value>
+<iter>
+<var name="${task}">Task1</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.405" level="INFO">Typing text 'Task1' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.404" endtime="20220814 13:02:28.500"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.501" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.500" endtime="20220814 13:02:28.530"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.404" endtime="20220814 13:02:28.530"/>
+</iter>
+<iter>
+<var name="${task}">Task2</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.531" level="INFO">Typing text 'Task2' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.531" endtime="20220814 13:02:28.600"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.601" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.600" endtime="20220814 13:02:28.618"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.530" endtime="20220814 13:02:28.618"/>
+</iter>
+<iter>
+<var name="${task}">Task3</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_page.txt_add_item}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.619" level="INFO">Typing text 'Task3' into text field 'xpath=//*[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.618" endtime="20220814 13:02:28.684"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.685" level="INFO">Clicking element 'xpath=//*[@id="add-item"]/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.684" endtime="20220814 13:02:28.700"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.618" endtime="20220814 13:02:28.700"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:28.404" endtime="20220814 13:02:28.700"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:28.403" endtime="20220814 13:02:28.700"/>
+</kw>
+<kw name="Finish the task in TO DO TASKS" library="todo_list_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_todo_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.702" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.701" endtime="20220814 13:02:28.753"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220814 13:02:28.753" endtime="20220814 13:02:28.769"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.txt_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.777" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:28.769" endtime="20220814 13:02:28.777"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${task}</var>
+<value>${count}</value>
+<iter>
+<var name="${task}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.778" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.777" endtime="20220814 13:02:28.803"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.777" endtime="20220814 13:02:28.803"/>
+</iter>
+<iter>
+<var name="${task}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.804" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.803" endtime="20220814 13:02:28.826"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.803" endtime="20220814 13:02:28.826"/>
+</iter>
+<iter>
+<var name="${task}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.checkbox_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.827" level="INFO">Clicking element 'xpath=//*[@id="incomplete-tasks"]/li[1]/label'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.826" endtime="20220814 13:02:28.849"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.826" endtime="20220814 13:02:28.849"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:28.777" endtime="20220814 13:02:28.849"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:28.701" endtime="20220814 13:02:28.849"/>
+</kw>
+<kw name="Verify items in COMPLETED tasks" library="todo_list_keywords">
+<arg>@{tasks}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_completed}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.850" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="Completed"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.849" endtime="20220814 13:02:28.876"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.completed_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.887" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:28.876" endtime="20220814 13:02:28.887"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>${count}</value>
+<iter>
+<var name="${index}">0</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:28.889" level="INFO">${key_value_pairs} = {'$task_no': 1}</msg>
+<status status="PASS" starttime="20220814 13:02:28.888" endtime="20220814 13:02:28.889"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:28.889" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.889" endtime="20220814 13:02:28.889"/>
+</kw>
+<msg timestamp="20220814 13:02:28.890" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.887" endtime="20220814 13:02:28.890"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:28.905" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[1]//*[@class="mdl-list__item-primary-content"]' contains text 'Task1'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.890" endtime="20220814 13:02:28.905"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.887" endtime="20220814 13:02:28.905"/>
+</iter>
+<iter>
+<var name="${index}">1</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:28.907" level="INFO">${key_value_pairs} = {'$task_no': 2}</msg>
+<status status="PASS" starttime="20220814 13:02:28.907" endtime="20220814 13:02:28.907"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:28.907" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.907" endtime="20220814 13:02:28.908"/>
+</kw>
+<msg timestamp="20220814 13:02:28.908" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.905" endtime="20220814 13:02:28.908"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:28.922" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[2]//*[@class="mdl-list__item-primary-content"]' contains text 'Task2'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.908" endtime="20220814 13:02:28.922"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.905" endtime="20220814 13:02:28.922"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Format Text" library="todo_list_keywords">
+<var>${ele}</var>
+<arg>${dict_page.completed_tasks}</arg>
+<arg>$task_no=${index+1}</arg>
+<kw name="Convert To Dictionary" library="Collections">
+<var>${key_value_pairs}</var>
+<arg>${key_value_pairs}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<msg timestamp="20220814 13:02:28.924" level="INFO">${key_value_pairs} = {'$task_no': 3}</msg>
+<status status="PASS" starttime="20220814 13:02:28.923" endtime="20220814 13:02:28.924"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${result_text}</var>
+<arg>unicode($format_string).format(**$key_value_pairs) if sys.version_info.major==2 else str($format_string).format(**$key_value_pairs)</arg>
+<arg>modules=sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220814 13:02:28.924" level="INFO">${result_text} = xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.924" endtime="20220814 13:02:28.924"/>
+</kw>
+<msg timestamp="20220814 13:02:28.925" level="INFO">${ele} = xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]</msg>
+<status status="PASS" starttime="20220814 13:02:28.922" endtime="20220814 13:02:28.925"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ele}</arg>
+<arg>${tasks}[${index}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220814 13:02:28.939" level="INFO">Element 'xpath=(//*[@id="completed-tasks"]/child::*)[3]//*[@class="mdl-list__item-primary-content"]' contains text 'Task3'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.925" endtime="20220814 13:02:28.939"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.922" endtime="20220814 13:02:28.939"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:28.887" endtime="20220814 13:02:28.939"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:28.849" endtime="20220814 13:02:28.939"/>
+</kw>
+<kw name="Delete all completed tasks" library="todo_list_keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.tab_completed}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.940" level="INFO">Clicking element 'xpath=//*[@class="mdl-tabs__tab-bar"]/child::*[text()="Completed"]'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.940" endtime="20220814 13:02:28.956"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count}</var>
+<arg>${dict_page.completed_tasks_list}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.961" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20220814 13:02:28.956" endtime="20220814 13:02:28.961"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>${count}</value>
+<iter>
+<var name="${index}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_completed_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.962" level="INFO">Clicking element 'xpath=//*[@id="completed-tasks"]/child::*/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.962" endtime="20220814 13:02:28.986"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.962" endtime="20220814 13:02:28.986"/>
+</iter>
+<iter>
+<var name="${index}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_completed_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:28.987" level="INFO">Clicking element 'xpath=//*[@id="completed-tasks"]/child::*/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:28.987" endtime="20220814 13:02:29.010"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:28.987" endtime="20220814 13:02:29.010"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_completed_tasks}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220814 13:02:29.011" level="INFO">Clicking element 'xpath=//*[@id="completed-tasks"]/child::*/button'.</msg>
+<status status="PASS" starttime="20220814 13:02:29.011" endtime="20220814 13:02:29.033"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:29.010" endtime="20220814 13:02:29.033"/>
+</iter>
+<status status="PASS" starttime="20220814 13:02:28.961" endtime="20220814 13:02:29.033"/>
+</for>
+<status status="PASS" starttime="20220814 13:02:28.939" endtime="20220814 13:02:29.033"/>
+</kw>
+<kw name="Verify completed task should be empty" library="todo_list_keywords">
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>${dict_page.btn_delete_completed_tasks}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20220814 13:02:29.038" level="INFO">Element 'xpath=//*[@id="completed-tasks"]/child::*/button' did not exist.</msg>
+<status status="PASS" starttime="20220814 13:02:29.033" endtime="20220814 13:02:29.038"/>
+</kw>
+<status status="PASS" starttime="20220814 13:02:29.033" endtime="20220814 13:02:29.038"/>
+</kw>
+<kw name="Close Window" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes currently opened and selected browser window/tab.</doc>
+<status status="PASS" starttime="20220814 13:02:29.038" endtime="20220814 13:02:29.116"/>
+</kw>
+<tag>tc4</tag>
+<status status="PASS" starttime="20220814 13:02:25.648" endtime="20220814 13:02:29.117"/>
+</test>
+<status status="PASS" starttime="20220814 13:02:14.598" endtime="20220814 13:02:29.118"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">tc1</stat>
+<stat pass="1" fail="0" skip="0">tc2</stat>
+<stat pass="1" fail="0" skip="0">tc3</stat>
+<stat pass="1" fail="0" skip="0">tc4</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Exercise">Exercise</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
